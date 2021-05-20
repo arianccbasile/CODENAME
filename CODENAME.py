@@ -9,7 +9,7 @@ from pyvis.network import Network
 import os
 
 # detect the current working directory and create the output folder
-path = os.getcwd()+'\outputs'
+path = os.getcwd()+'/outputs'
 try:
     os.mkdir(path)
 except OSError:
@@ -152,7 +152,7 @@ while go_on != 'N':
             print(f'\n...There are {subset.shape[0]} exchanges of {compound_extended} in the community.')
 
             # create a directory where to store compound outputs
-            path = os.getcwd()+'\outputs\\'+str(compound)
+            path = os.getcwd()+'/outputs/'+str(compound)
             try:
                 os.mkdir(path)
             except OSError:
@@ -256,7 +256,7 @@ while go_on != 'N':
     }""")
 
     try:
-        net.show(path+'\\'+str(compound_extended)+'_exchanges.html')
+        net.show(path+'/'+str(compound_extended)+'_exchanges.html')
         print(f'...The HTML file with the network of all {compound_extended} exchanges in the community has been generated. See inside {compound} folder.')
     except OSError:
         print("Creation of the network's HTML file failed")
@@ -281,7 +281,7 @@ while go_on != 'N':
     result.index.name = 'Species'
 
     try:
-        result.to_csv(path+'\\'+str(compound_extended)+'_species_behaviour.tsv', sep = '\t')
+        result.to_csv(path+'/'+str(compound_extended)+'_species_behaviour.tsv', sep = '\t')
         print(f'\n...The file with characteristics of all species involved in {compound_extended} exchanges has been generated. See inside {compound} folder.\n')
     except OSError:
         print("\nCreation of the species behaviours file failed")
